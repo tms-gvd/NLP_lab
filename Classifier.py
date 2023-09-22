@@ -1,24 +1,55 @@
 import string
+import pandas as pd
+
+POS_LABEL = [
+    "NOUN",
+    "ADP",
+    "DET",
+    "PUNCT",
+    "VERB",
+    "PROPN",
+    "ADJ",
+    "PRON",
+    "ADV",
+    "AUX",
+    "CCONJ",
+    "NUM",
+    "X",
+    "SCONJ",
+    "SYM",
+    "INTJ"
+]
 
 class NaiveClassifier:
 
-    def __init__(self, train, dev, test) -> None:
-        self.train = train
-        self.dev = dev
-        self.test = test
+    def __init__(self) -> None:
+        pass
 
-    def fit(self, train):
+    def predict(self, data:pd.DataFrame):
+
+        assert 'FORM' in data.columns, 'Column FORM is missing from data'
         
         def naive_rules(word):
             if word.endswith('s'):
                 return 'VERB'
-            if word[0].isupper():
+            elif word[0].isupper():
                 return 'PROPN'
-            if word.isdigit():
+            elif word.isdigit():
                 return 'NUM'
-            if word.lower().startswith('qu'):
+            elif word.lower().startswith('qu'):
                 return 'SCONJ'
-            if (i in string.punctuation for i in word):
+            elif all(i in string.punctuation for i in word):
                 return 'PUNCT'
-        
-        train['pred'] = train.FORM.apply(naive_rules)
+            else:
+                return 'NOUN'
+        return data.FORM.apply(naive_rules).tolist()
+
+
+class RandomClassifier:
+
+    def __init__(self, random_seed=0) -> None:
+        self.random_seed = random_seed
+        self.label = POS_LABEL
+    
+    def predict(self, data):
+        pass
