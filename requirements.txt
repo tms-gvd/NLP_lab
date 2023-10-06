@@ -1,0 +1,41 @@
+# Core Libraries
+numpy
+pandas
+scipy
+matplotlib
+
+# Machine Learning Libraries
+scikit-learn
+tensorflow
+pytorch
+xgboost
+lightgbm
+
+# Data Visualization
+seaborn
+plotly
+
+# Natural Language Processing (NLP)
+nltk
+spaCy
+gensim
+
+# Jupyter Notebook
+jupyter
+
+# Database Connectivity
+sqlalchemy
+
+# Data Manipulation
+openpyxl
+xlrd
+
+# Web Scraping
+beautifulsoup4
+requests
+
+# Deep Learning Frameworks (Optional)
+keras
+
+# Additional Libraries (Add as Needed)
+# library_name
