@@ -14,21 +14,16 @@ POS_LABEL = [
 
 
 class NaiveClassifier:
-    
-
     def __init__(self) -> None:
         pass
 
     def predict(self, data: pd.DataFrame):
 
         assert 'FORM' in data.columns, 'Column FORM is missing from data'
-        
         def naive_rules(word):
             word = word.lower()  # Convert word to lowercase for consistent rule checking
-            
             if word.endswith(('tion', 'sion', 'ment')) or word in ['ville', 'année', 'pays', 'nom', 'jour', 'mois', 'homme', 'femme', 'vie', 'enfant']:
                 return 'NOUN'
-
             if word.endswith(('er', 'ir', 're')) or word in ['être', 'avoir', 'est', 'était', 'été', 'fut', 'étant']:
                 return 'VERB'
             if word in ['être', 'avoir', 'est', 'était', 'été', 'fut', 'étant']:

@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import string
 
 class ConLLUParser:
-
+# word2vec_ Fasttext and Glove are defined as being the first to be introduced starting of 2018 then it has been diffeerentiated between encoders and decoders 
+# and bert, roberta are being considered as encoders and gpt1, gpt2, gpt4
     def __init__(self, path, verbose=False) -> None:
         # open .conllu file and split each line and remove the '\n' character at the end
         with open(path) as f:
@@ -77,9 +78,25 @@ class ConLLUParser:
 
 
 if __name__=="__main__":
-
+#French
     verbose = False
     fr_train = ConLLUParser('fr_gsd-ud-train.conllu', verbose)
     fr_dev = ConLLUParser('fr_gsd-ud-dev.conllu', verbose)
     fr_test = ConLLUParser('fr_gsd-ud-test.conllu', verbose)
+#Estonian 
+    verbose = False
+    et_train = ConLLUParser('et_edt-ud-train.conllu', verbose)
+    et_dev = ConLLUParser('et_edt-ud-dev.conllu', verbose)
+    et_test = ConLLUParser('et_edt-ud-test.conllu', verbose)
+#Finnish 
+    verbose = False
+    fi_train = ConLLUParser('fi_ftb-ud-train.conllu', verbose)
+    fi_dev = ConLLUParser('fi_ftb-ud-dev.conllu', verbose)
+    fi_test=ConLLUParser('fi_ftb-ud-test.conllu', verbose)
+#English 
+    verbose = False
+    en_train = ConLLUParser('en_ewt-ud-train.conllu', verbose)
+    en_dev = ConLLUParser('en_ewt-ud-dev.conllu', verbose)
+    en_test = ConLLUParser('en_ewt-ud-test.conllu', verbose)
 
+    
